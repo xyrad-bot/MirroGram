@@ -1,7 +1,11 @@
-FROM 5hojib/aeon:latest
+FROM dawn001/z_mirror:hk_latest
 
 WORKDIR /usr/src/app
-RUN pip3 install --no-cache-dir --break-system-packages aiofiles aiohttp aioshutil anytree apscheduler aria2p asyncio cloudscraper dnspython feedparser flask gevent google-api-python-client google-auth-httplib2 google-auth-oauthlib gunicorn httpx lxml motor natsort pillow psutil pycryptodome pymongo pyrofork==2.2.11 python-dotenv python-magic qbittorrent-api requests telegraph tenacity urllib3 uvloop xattr yt-dlp
+RUN chmod 777 /usr/src/app
+
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . .
+
 CMD ["bash", "start.sh"]
