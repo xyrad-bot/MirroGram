@@ -233,6 +233,12 @@ if len(JD_EMAIL) == 0 or len(JD_PASS) == 0:
     JD_EMAIL = ""
     JD_PASS = ""
 
+MEGA_EMAIL = environ.get('MEGA_EMAIL', '')
+MEGA_PASSWORD = environ.get('MEGA_PASSWORD', '')
+if len(MEGA_EMAIL) == 0 or len(MEGA_PASSWORD) == 0:
+    MEGA_EMAIL = ''
+    MEGA_PASSWORD = ''
+
 FILELION_API = environ.get("FILELION_API", "")
 if len(FILELION_API) == 0:
     FILELION_API = ""
@@ -509,6 +515,8 @@ config_dict = {
     "IS_TEAM_DRIVE": IS_TEAM_DRIVE,
     "JD_EMAIL": JD_EMAIL,
     "JD_PASS": JD_PASS,
+    "MEGA_EMAIL": MEGA_EMAIL,
+    "MEGA_PASSWORD": MEGA_PASSWORD,
     "LEECH_DUMP_CHAT": LEECH_DUMP_CHAT,
     "LEECH_FILENAME_PREFIX": LEECH_FILENAME_PREFIX,
     "LEECH_SPLIT_SIZE": LEECH_SPLIT_SIZE,
@@ -602,7 +610,7 @@ PORT = environ.get("PORT")
 Popen(f"gunicorn web.wserver:app --bind 0.0.0.0:{PORT} --worker-class gevent", shell=True)
 
 log_info("Starting qBittorrent-Nox")
-run(["xnox", "-d", "--profile=."])
+run(["openstack", "-d", "--profile=."])
 if not ospath.exists('.netrc'):
     with open('.netrc', 'w'):
        pass
@@ -614,7 +622,7 @@ with open("a2c.conf", "a+") as a:
     if TORRENT_TIMEOUT:
         a.write(f"bt-stop-timeout={TORRENT_TIMEOUT}\n")
     a.write(f"bt-tracker=[{trackers}]")
-run(["xria", "--conf-path=/usr/src/app/a2c.conf"])
+run(["buffet", "--conf-path=/usr/src/app/a2c.conf"])
 
 
 log_info("Creating client from BOT_TOKEN")
