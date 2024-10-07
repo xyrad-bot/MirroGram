@@ -21,14 +21,12 @@ natsort
 pillow
 psutil
 pymongo
-git+https://github.com/KurimuzonAkuma/pyrogram.git
 python-dotenv
 python-magic
 qbittorrent-api
 requests
 telegraph
 tenacity
-tgcrypto
 urllib3
 uvloop
 xattr
