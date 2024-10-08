@@ -3,7 +3,7 @@ import json
 from uuid import uuid4
 from time import sleep, time
 from base64 import b64encode
-from pyrogram import filters
+from nekozee import filters
 from shutil import disk_usage
 from urllib.parse import quote
 from pymongo import MongoClient
@@ -14,16 +14,16 @@ from urllib3 import disable_warnings
 from aiofiles.os import path as aiopath
 from cloudscraper import create_scraper
 from asyncio import create_subprocess_exec
-from pyrogram.filters import regex, command
-from pyrogram.handlers import MessageHandler
+from nekozee.filters import regex, command
+from nekozee.handlers import MessageHandler
 from random import choice, random, randrange
 from aiohttp import ClientSession as aClientSession
-from pyrogram.types import BotCommand, CallbackQuery
+from nekozee.types import BotCommand, CallbackQuery
 from re import findall as refindall, search as re_search
 from subprocess import run as srun, check_output as scheck_output
 from aiofiles.os import remove as aioremove, path as aiopath, mkdir
 from os import remove as osremove, rename as osrename, path as ospath, replace as osreplace, getcwd
-from pyrogram.errors import PeerIdInvalid, RPCError, UserNotParticipant, FloodWait
+from nekozee.errors import PeerIdInvalid, RPCError, UserNotParticipant, FloodWait
 from psutil import disk_usage, cpu_percent, swap_memory, cpu_count, virtual_memory, net_io_counters, boot_time
 
 from bot import bot, botStartTime, config_dict, task_dict_lock, task_dict, DATABASE_URL, DOWNLOAD_DIR, GLOBAL_BLACKLIST_FILE_KEYWORDS, LOGGER, OWNER_ID, shorteneres_list, user_data

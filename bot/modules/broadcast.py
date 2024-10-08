@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from time import time
 from asyncio import sleep
-from pyrogram.handlers import MessageHandler
-from pyrogram.filters import command
-from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
+from nekozee.handlers import MessageHandler
+from nekozee.filters import command
+from nekozee.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import bot, LOGGER, DATABASE_URL
 from bot.helper.ext_utils.db_handler import DbManager

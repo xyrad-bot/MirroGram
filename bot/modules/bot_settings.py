@@ -12,8 +12,8 @@ from dotenv import load_dotenv
 from functools import partial
 from io import BytesIO
 from os import environ, getcwd
-from pyrogram.filters import command, regex, create
-from pyrogram.handlers import MessageHandler, CallbackQueryHandler
+from nekozee.filters import command, regex, create
+from nekozee.handlers import MessageHandler, CallbackQueryHandler
 from time import time
 
 from bot import (

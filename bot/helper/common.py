@@ -4,7 +4,7 @@ from asyncio.subprocess import PIPE
 from os import walk, path as ospath
 from secrets import token_urlsafe
 from aioshutil import move, copy2
-from pyrogram.enums import ChatAction
+from nekozee.enums import ChatAction
 from re import sub, I
 
 from bot import (
