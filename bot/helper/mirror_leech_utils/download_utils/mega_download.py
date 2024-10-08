@@ -174,7 +174,7 @@ async def add_mega_download(listener, path):
     gid = token_urlsafe(8)
     size = api.getSize(node)
 
-    add_to_queue, event = await is_queued(listener.mid)
+    add_to_queue, event = await check_running_tasks(listener)
     if add_to_queue:
         LOGGER.info(f"Added to Queue/Download: {listener.name}")
         async with task_dict_lock:

@@ -362,6 +362,8 @@ class Mirror(TaskListener):
             await add_rclone_download(self, f"{path}/")
         elif is_gdrive_link(self.link) or is_gdrive_id(self.link):
             await add_gd_download(self, path)
+        elif is_mega_link(self.link):
+            await add_mega_download(self, f"{path}/")   
         else:
             ussr = args["-au"]
             pssw = args["-ap"]
