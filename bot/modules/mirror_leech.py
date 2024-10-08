@@ -293,8 +293,8 @@ class Mirror(TaskListener):
             and not await aiopath.exists(self.link)
             and not is_rclone_path(self.link)
             and not is_gdrive_id(self.link)
-            and not is_mega_link(self.link)
             and not is_gdrive_link(self.link)
+            and not is_mega_link(self.link)
         ):
             await sendMessage(
                 self.message, COMMAND_USAGE["mirror"][0], COMMAND_USAGE["mirror"][1]
@@ -317,11 +317,11 @@ class Mirror(TaskListener):
             and not self.isQbit
             and not is_magnet(self.link)
             and not is_rclone_path(self.link)
-            and not is_mega_link(self.link)
             and not is_gdrive_link(self.link)
             and not self.link.endswith(".torrent")
             and file_ is None
             and not is_gdrive_id(self.link)
+            and not is_mega_link(self.link)
         ):
             content_type = await get_content_type(self.link)
             if content_type is None or re_match(r"text/html|text/plain", content_type):
