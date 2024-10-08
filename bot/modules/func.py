@@ -76,7 +76,7 @@ async def edit_video_metadata(user_id, file_path):
         return
 
     cmd = [
-        'xtra', '-y', '-i', file_path, '-c', 'copy',
+        'render', '-y', '-i', file_path, '-c', 'copy',
         '-metadata:s:v:0', f'title={metadata_text}',
         '-metadata', f'title={metadata_text}',
         '-metadata', 'copyright=',
@@ -169,7 +169,7 @@ async def add_attachment(user_id, file_path):
         mime_type = 'application/octet-stream'
 
     cmd = [
-        'xtra', '-y', '-i', file_path,
+        'render', '-y', '-i', file_path,
         '-attach', attachment_url,
         '-metadata:s:t', f'mimetype={mime_type}',
         '-c', 'copy', '-map', '0', temp_file_path
